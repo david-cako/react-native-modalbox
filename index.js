@@ -181,7 +181,7 @@ var ModalBox = createReactClass({
         toValue: 1,
         duration: this.props.animationDuration,
         easing: this.props.easing,
-        useNativeDriver: this.props.useNativeDriver,
+        useNativeDriver: false,
       }
     ).start(() => {
       this.setState({
@@ -206,7 +206,7 @@ var ModalBox = createReactClass({
         toValue: 0,
         duration: this.props.animationDuration,
         easing: this.props.easing,
-        useNativeDriver: this.props.useNativeDriver,
+        useNativeDriver: false,
       }
     ).start(() => {
       this.setState({
@@ -252,7 +252,7 @@ var ModalBox = createReactClass({
             toValue: positionDest,
             duration: this.props.animationDuration,
             easing: this.props.easing,
-            useNativeDriver: this.props.useNativeDriver,
+            useNativeDriver: false,
           }
         ).start(() => {
           this.setState({
@@ -296,7 +296,7 @@ var ModalBox = createReactClass({
           toValue: this.props.entry === 'top' ? -this.state.containerHeight : this.state.containerHeight,
           duration: this.props.animationDuration,
           easing: this.props.easing,
-          useNativeDriver: this.props.useNativeDriver,
+          useNativeDriver: false,
         }
       ).start(() => {
         // Keyboard.dismiss();   // make this optional. Easily user defined in .onClosed() callback
@@ -339,7 +339,7 @@ var ModalBox = createReactClass({
       inSwipeArea = false;
       if (this.props.entry === 'top' ? -state.dy > this.props.swipeThreshold : state.dy > this.props.swipeThreshold)
         this.animateClose();
-      else if (!this.state.isOpen) {
+      else {
         this.animateOpen();
       }
     };
